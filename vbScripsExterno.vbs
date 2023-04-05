@@ -361,8 +361,36 @@ retangulo.X = 200
 retangulo.Y = 200
 retangulo.FreGroundColor = vbRed
 
+' With...end with
+With Screen.Item("Retangulo1")
+	.BackGroundColor = vbRed
+	.BorderColor = vbBlack
+	.Effect3D = 1
+	.Visible = True
+End With
+
+' Extraindo o tipo de objeto
+Set Tag = Application.GetObject("Dados.TagInterno1")    
+MsgBox TypeName(Tag) 'Será exibida uma caixa de mensagem com o texto "InternalTag"
+Set Botao = Screen.Item("CommandButton1")
+MsgBox TypeName(Botao) 'Será exibida uma caixa de mensagem com o texto "CommandButton"
+
 ' ------------------------------------------------------------------------------------------------------------------
 
+' Funções
+Sub CommandButton26_Click()
+	resposta = soma(10, 20)
+	MsgBox resposta
 
+	ExibirMensagem("Mensagem a ser exibida")
+End Sub
+
+Function soma(a, b)
+	soma = a + b
+End Function
+
+Sub ExibirMensagem(mensagem)
+	MsgBox mensagem
+End Sub
 
 ' ------------------------------------------------------------------------------------------------------------------
