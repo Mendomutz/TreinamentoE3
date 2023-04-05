@@ -1,0 +1,462 @@
+-----------------------
+Documenta��o de Scripts
+-----------------------
+Dom�nio: TreinamentoE3
+Thu Mar 30 09:38:48 2023
+-----------------------
+
+<Bomba.Figura1:Figura1_Click()>
+Sub Figura1_Click()
+	dim Arg(1)
+	
+	Arg(0) = Bomba.Fonte.PathName
+	Arg(1) = Bomba.Fonte.Name
+
+	Application.DoModal "TelaComando", "Comando", , , , , Arg, 1+2+64+2048	
+End Sub
+
+<Dados.vbScript.TagInterno1:TagInterno1_OnValueChange()>
+Sub TagInterno1_OnValueChange()
+	for var = 1 to 5000
+		value = value + 1
+	next
+	
+	Application.Trace "Valor da tag " & valor
+End Sub
+
+<TelaComando:TelaComando_OnPreShow(Arg)>
+Sub TelaComando_OnPreShow(Arg)
+	Item("ComandoBomba1").Fonte = Arg(0)
+	Caption = Arg(1)
+End Sub
+
+<TelaHistorico.CheckBox_nivel1:CheckBox_nivel1_Change()>
+Sub CheckBox_nivel1_Change()
+	Screen.Item("Grafico").Pens.Item("Nivel1").Visible = Value	
+End Sub
+
+<TelaHistorico.CheckBox_nivel2:CheckBox_nivel2_Change()>
+Sub CheckBox_nivel2_Change()
+	Screen.Item("Grafico").Pens.Item("Nivel2").Visible = Value	
+End Sub
+
+<TelaHistorico.CheckBox_nivel3:CheckBox_nivel3_Change()>
+Sub CheckBox_nivel3_Change()
+	Screen.Item("Grafico").Pens.Item("Temperatura2").Visible = Value	
+End Sub
+
+<TelaHistorico.CheckBox_nivel4:CheckBox_nivel4_Change()>
+Sub CheckBox_nivel4_Change()
+	Screen.Item("Grafico").Pens.Item("Temperatura1").Visible = Value	
+End Sub
+
+<TelaHistorico.CommandButton1:CommandButton1_Click()>
+Sub CommandButton1_Click()
+Application.LoadReport("Relatorio1").PrintPreview 
+End Sub
+
+<TelaHistorico.CommandButton2:CommandButton2_Click()>
+Sub CommandButton2_Click()
+Application.LoadReport("RelatorioGrafico").PrintPreview 
+End Sub
+
+<TelaHistorico.Grafico:Grafico_OnStartRunning()>
+Sub Grafico_OnStartRunning()
+	HorScaleBegin = Application.GetObject("Dados.Relogio").Value	
+End Sub
+
+<TelaHistorico.bt_pesquisa_nivel:bt_pesquisa_nivel_Click()>
+Sub bt_pesquisa_nivel_Click()
+	'Screen.Item("BrowserNivel").Item("Consulta1").SetVariableValue "DataInicial_nivel", Screen.Item("sp_inicio_nivel").Value
+	'Screen.Item("BrowserNivel").Item("Consulta1").SetVariableValue "DataFinal_nivel", Screen.Item("sp_fim_nivel").Value
+	
+	'Definindo variaveis que est�o recebendo o valor dos SetPoints
+	DataInicial = screen.item("sp_inicio_nivel").value
+	DataFinal   = screen.item("sp_fim_nivel").value
+	
+	'Cria um objeto interno que referencia o objeto consulta e pega as informa��es da Consulta1 dentro do BrowserNivel
+	Set consulta = screen.item("BrowserNivel").item("Consulta1")
+	
+	'Define o valor das variaveis dentro da consulta como os valores das variaveis definidas anteriormente
+	consulta.SetVariableValue "DataInicial_nivel" , DataInicial
+	consulta.SetVariableValue "DataFinal_nivel" , DataFinal
+End Sub
+
+<TelaHistorico.bt_pesquisa_temperatura:bt_pesquisa_temperatura_Click()>
+Sub bt_pesquisa_temperatura_Click()
+	Screen.Item("BrowserTemperatura").Item("Consulta1").SetVariableValue "vrInicio_temperatura", Screen.Item("sp_inicio_temperatura").Value
+	Screen.Item("BrowserTemperatura").Item("Consulta1").SetVariableValue "vrFim_temperatura", Screen.Item("sp_fim_temperatura").Value
+End Sub
+
+<TelaHistorico.sp_fim_nivel:sp_fim_nivel_Click()>
+Sub sp_fim_nivel_Click()
+	if Application.ShowDatePicker(DataHora) then
+		sp_fim_nivel.Value = DataHora
+	end if
+End Sub
+
+<TelaHistorico.sp_fim_temperatura:sp_fim_temperatura_Click()>
+Sub sp_fim_temperatura_Click()
+	if Application.ShowDatePicker(DataHora) then
+		sp_fim_temperatura.Value = DataHora
+	end if
+End Sub
+
+<TelaHistorico.sp_inicio_nivel:sp_inicio_nivel_Click()>
+Sub sp_inicio_nivel_Click()
+	if Application.ShowDatePicker(DataHora) then
+		sp_inicio_nivel.Value = DataHora
+	end if
+End Sub
+
+<TelaHistorico.sp_inicio_temperatura:sp_inicio_temperatura_Click()>
+Sub sp_inicio_temperatura_Click()
+	if Application.ShowDatePicker(DataHora) then
+		sp_inicio_temperatura.Value =  DataHora
+	end if
+End Sub
+
+<TelaInicial.lbEntrar:lbEntrar_Click()>
+Sub lbEntrar_Click()
+Application.GetFrame("").OpenScreen "Quadro1?100?0?0", CLng(0)
+End Sub
+
+<TelaInicial.lbSair:lbSair_Click()>
+Sub lbSair_Click()
+if MsgBox("Deseja realmente fechar a aplica��o?", vbYesNo + vbQuestion, "Sair") = vbYes then
+	application.exit()
+end if	
+End Sub
+
+<TelaMenu.CommandButton1:CommandButton1_Click()>
+Sub CommandButton1_Click()
+Application.GetFrame("").OpenScreen "TelaInicial?100?0?0", CLng(0)
+End Sub
+
+<TelaMenu.CommandButton2:CommandButton2_Click()>
+Sub CommandButton2_Click()
+Application.GetFrame("Central").OpenScreen "TelaSinotico?100?0?0", CLng(0)
+End Sub
+
+<TelaMenu.CommandButton3:CommandButton3_Click()>
+Sub CommandButton3_Click()
+Application.GetFrame("Central").OpenScreen "TelaHistorico?100?0?0", CLng(0)
+End Sub
+
+<TelaMenu.CommandButton4:CommandButton4_Click()>
+Sub CommandButton4_Click()
+Application.GetFrame("Central").OpenScreen "TelaEventos?100?0?0", CLng(0)
+End Sub
+
+<TelaMenu.CommandButton5:CommandButton5_Click()>
+Sub CommandButton5_Click()
+Application.GetFrame("Central").OpenScreen "TelaVBScript?100?0?0", CLng(0)
+End Sub
+
+<TelaMenu.CommandButton6:CommandButton6_Click()>
+Sub CommandButton6_Click()
+Application.GetFrame("Central").OpenScreen "TelaDesafio?100?0?0", CLng(0)
+End Sub
+
+<TelaMenu.Figura1:Figura1_Click()>
+Sub Figura1_Click()
+	 Application.UserAdministration()
+End Sub
+
+<TelaMenu.Figura2:Figura2_Click()>
+Sub Figura2_Click()
+	Application.Login()
+End Sub
+
+<TelaSinotico.BotaoCores:BotaoCores_Click()>
+Sub BotaoCores_Click()
+	Application.LoadFormulaDlg "FormulaCores"	
+End Sub
+
+<TelaVBScript.ComboBox1:ComboBox1_OnStartRunning()>
+Sub ComboBox1_OnStartRunning()
+	Clear()
+
+	AddItem "LIGADO"
+	AddItem "DESLIGADO"
+	AddItem "MANUTEN��O"
+	AddItem "DEFEITO"
+End Sub
+
+<TelaVBScript.CommandButton10:CommandButton10_Click()>
+Sub CommandButton10_Click()
+	with Screen.Item("Display2")
+		.ForegroundColor = vbGreen
+		.Width = 5000
+		.BorderWidth = 70
+	end with
+End Sub
+
+<TelaVBScript.CommandButton11:CommandButton11_Click()>
+Sub CommandButton11_Click()
+	for var = 1 to 5
+		a = a + 1
+	next	
+End Sub
+
+<TelaVBScript.CommandButton12:CommandButton12_Click()>
+Sub CommandButton12_Click()
+	for each var in Screen	
+		if TypeName(var) = "DrawString" then
+			MsgBox var.Value
+		end if
+	next
+End Sub
+
+<TelaVBScript.CommandButton13:CommandButton13_Click()>
+Sub CommandButton13_Click()
+	var = 7
+	while var < 10
+		var = var + 1
+	wend
+End Sub
+
+<TelaVBScript.CommandButton14:CommandButton14_Click()>
+Sub CommandButton14_Click()
+	dim a(3)
+	
+	a(0) = "teste"
+	a(1) = 10
+	a(2) = 123
+	a(3) = 789
+	
+	for var = lbound(a) to ubound(a)
+		MsgBox a(var)
+	next
+
+	dim b(2)
+
+	b(0) = Array("Coluna 0", "Coluna 1", "Coluna 2")
+	b(1) = Array(501, 502, 503)
+	b(2) = Array("Valor 1", 1, 4)
+
+	For index1 = LBound(b) To UBound(b)
+		For index2 = LBound(b(index1)) To UBound(b(index1))
+			MsgBox b(index1)(index2)
+		Next
+	Next
+End Sub
+
+<TelaVBScript.CommandButton15:CommandButton15_Click()>
+Sub CommandButton15_Click()
+	b = "Treinamento scripts elipse e3"
+	a = split(b, " ")
+	
+	for var = lbound(a) to ubound(a)
+		MsgBox a(var)
+	next	
+End Sub
+
+<TelaVBScript.CommandButton16:CommandButton16_Click()>
+Sub CommandButton16_Click()
+	nome = InputBox("Digite o nome do retangulo")
+
+	set a = Screen.AddObject("DrawRect", True, nome)
+
+	a.Width = 5000
+	a.Height = a.Width/2
+	a.X = Application.Item("TagInterno1").Value
+	a.Y = 10000
+	a.ForegroundColor = vbGreen ' RGB(0, 255, 0)
+
+	a.Links.CreateLink "VerticalPercentFill", "Viewer.Nivel1", 0
+
+	Application.Item("TagInterno1").Value = Application.Item("TagInterno1").Value + 5000
+End Sub
+
+<TelaVBScript.CommandButton17:CommandButton17_Click()>
+Sub CommandButton17_Click()
+	Screen.Item("Retangulo1").Links.CreateLink "VerticalPercentFill", "Viewer.Nivel1", 0
+End Sub
+
+<TelaVBScript.CommandButton18:CommandButton18_Click()>
+Sub CommandButton18_Click()
+	nome = InputBox("Digite o nome do retangulo")
+
+	On Error Resume Next
+	Set b = Screen.Item(nome)
+
+	If Err.Number <> 0 Then
+		set a = Screen.AddObject("DrawRect", True, nome)
+
+		a.Width = 5000
+		a.Height = a.Width/2
+		a.X = Application.Item("TagInterno1").Value
+		a.Y = 10000
+		a.ForegroundColor = vbGreen ' RGB(0, 255, 0)
+
+		a.Links.CreateLink "VerticalPercentFill", "Viewer.Nivel1", 0
+
+		Application.Item("TagInterno1").Value = Application.Item("TagInterno1").Value + 5000
+	Else
+		MsgBox "Objeto ja existe, utilize outro nome"
+	End If
+End Sub
+
+<TelaVBScript.CommandButton19:CommandButton19_Click()>
+Sub CommandButton19_Click()
+	var = soma(10, 20)
+	MsgBox var
+	CommandButton19_Evento1()
+End Sub
+
+Function soma(a, b)
+	soma = a + b
+End Function
+
+' Criado um evento vazio pois nao tem como retirar o End Sub final
+Sub vazio()
+End Sub
+
+<TelaVBScript.CommandButton19:CommandButton19_Evento1()>
+Sub CommandButton19_Evento1()
+	BackColor = vbGreen
+	Width = 5600
+	X = 26396.6
+End Sub
+
+<TelaVBScript.CommandButton1:CommandButton1_Click()>
+Sub CommandButton1_Click()
+	MsgBox "Inserido com sucesso", vbInformation, "Informa��o"
+End Sub
+
+<TelaVBScript.CommandButton2:CommandButton2_Click()>
+Sub CommandButton2_Click()
+	MsgBox "Acesso negado", vbCritical, "Acesso"
+End Sub
+
+<TelaVBScript.CommandButton3:CommandButton3_Click()>
+Sub CommandButton3_Click()
+	MsgBox "Deseja tentar novamente?", vbInformation + vbRetryCancel, "Confirma��o"
+End Sub
+
+<TelaVBScript.CommandButton4:CommandButton4_Click()>
+Sub CommandButton4_Click()
+	if MsgBox("Deseja realmente sair?", vbQuestion + vbYesNo, "Sair") = vbYes then
+		Application.Exit()
+	end if	
+End Sub
+
+<TelaVBScript.CommandButton5:CommandButton5_Click()>
+Sub CommandButton5_Click()
+	var = InputBox("Digite o valor", "Titulo")
+	Screen.Item("Texto1").Value = var
+End Sub
+
+<TelaVBScript.CommandButton6:CommandButton6_Click()>
+Sub CommandButton6_Click()
+	tempo = now
+	
+	for var = 1 to 5000
+		Application.GetObject("Dados.vbScript.TagInterno1").Value = Application.GetObject("Dados.vbScript.TagInterno1").Value + 1 
+	next
+	
+	tempo = now - tempo
+	MsgBox CDate(tempo)
+End Sub
+
+<TelaVBScript.CommandButton7:CommandButton7_Click()>
+Sub CommandButton7_Click()
+	tempo = now
+
+	tag = Application.GetObject("Dados.vbScript.TagInterno1").Value
+	for var = 1 to 5000
+		 tag = tag + 1
+	next
+	Application.GetObject("Dados.vbScript.TagInterno1").Value = tag
+	
+	tempo = now - tempo
+	MsgBox CDate(tempo)
+End Sub
+
+<TelaVBScript.CommandButton8:CommandButton8_Click()>
+Sub CommandButton8_Click()
+	tempo = now
+	set tag = Application.GetObject("Dados.vbScript.TagInterno1")
+	
+	for var = 1 to 5000
+		 tag.value = tag.value + 1
+	next
+	
+	tempo = now - tempo
+	MsgBox CDate(tempo)
+End Sub
+
+<TelaVBScript.CommandButton9:CommandButton9_Click()>
+Sub CommandButton9_Click()
+	set d = Screen.Item("Display2")
+	
+	d.ForegroundColor = vbGreen
+	d.Width = 5000
+	d.BorderWidth = 70
+End Sub
+
+<TelaVBScript.ListBox1:ListBox1_OnStartRunning()>
+Sub ListBox1_OnStartRunning()
+	Clear()
+
+	AddItem "LIGADO"
+	AddItem "DESLIGADO"
+	AddItem "MANUTEN��O"
+	AddItem "DEFEITO"	
+End Sub
+
+<TelaVBScript.Motor1:Motor1_Click()>
+Sub Motor1_Click()
+	set texto = Screen.Item("textoNomeMotor")
+
+	var = Application.SelectMenu("LIGADO|DESLIGADO|MANUTEN��O|DEFEITO")
+	
+	if var = 1 then
+		texto.value = "LIGADO"
+		OverrideFillColor = vbBlue
+	elseif var = 2 then
+		texto.value = "DESLIGADO"
+		OverrideFillColor = vbBlack
+	elseif var = 3 then
+		texto.value = "MANUTEN��O"
+		OverrideFillColor = vbYellow
+	else
+		texto.value = "DEFEITO"
+		OverrideFillColor = vbRed
+	end if
+End Sub
+
+<TelaVBScript.Motor2:Motor2_Click()>
+Sub Motor2_Click()
+	set texto = Screen.Item("textoNomeMotor2")
+
+	var = Application.SelectMenu("LIGADO|DESLIGADO|MANUTEN��O|DEFEITO")
+	
+	select case var
+		case 1
+			texto.value = "LIGADO"
+			OverrideFillColor = vbBlue
+		case 2
+			texto.value = "DESLIGADO"
+			OverrideFillColor = vbBlack
+		case 3
+			texto.value = "MANUTEN��O"
+			OverrideFillColor = vbYellow
+		case 4
+			texto.value = "DEFEITO"
+			OverrideFillColor = vbRed
+	end select
+End Sub
+
+<TelaVBScript.Texto4:Texto4_Validate(Cancel, NewValue)>
+Sub Texto4_Validate(Cancel, NewValue)
+	if MsgBox("Aceitar " & NewValue & " como o novo valor?", vbQuestion + vbYesNo) = vbNo then
+		Cancel = true
+	end if
+End Sub
+
+<Viewer:Viewer_OnLogin()>
+Sub Viewer_OnLogin()
+	Item("tagAdmin").value = IsUserMemberOfGroup("Administradores")	
+End Sub

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ActiveReportsLayout 
+	GUIDLIB="{4AC50DAE-7DCC-49D3-8B5B-B355257F2C47}" GUIDREP="{DA871884-4DFB-4389-ACF7-C3ABF653E386}" 
+	LICENSE="10000000"
+	PrintWidth="9110"
+	DocumentName="ActiveReports Document"
+	ScriptLang="VBScript"
+>
+<Watermark
+		>
+</Watermark>
+<PageSettings>
+</PageSettings>
+<StyleSheet>
+	<Style Name="Normal"
+	Value="font-family: &apos;Arial&apos;; font-style: normal; font-variant: inherit; font-weight: normal; font-size: 10pt; font-size-adjust: inherit; font-stretch: inherit; color: rgb(0,0,0); background-color: rgb(255,255,255); background-image: inherit; background-repeat: inherit; background-attachment: inherit; background-x-position: inherit; background-y-position: inherit; opacity: inherit; word-spacing: inherit; letter-spacing: inherit; text-decoration: none; vertical-align: inherit; text-transform: inherit; text-align: inherit; text-indent: inherit; unicode-bidi: inherit; line-height: inherit; white-space: inherit; ddo-can-grow: inherit; ddo-can-shrink: inherit; ddo-char-set: 0; "
+	/>
+	<Style Name="Heading1"
+	Value="font-family: &apos;inherit&apos;; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 16pt; font-size-adjust: inherit; font-stretch: inherit; "
+	/>
+	<Style Name="Heading2"
+	Value="font-family: &apos;Times New Roman&apos;; font-style: italic; font-variant: inherit; font-weight: bold; font-size: 14pt; font-size-adjust: inherit; font-stretch: inherit; "
+	/>
+	<Style Name="Heading3"
+	Value="font-family: &apos;inherit&apos;; font-style: inherit; font-variant: inherit; font-weight: bold; font-size: 13pt; font-size-adjust: inherit; font-stretch: inherit; "
+	/>
+	<Style Name="Heading4"
+	/>
+</StyleSheet>
+<Sections>
+	<Section Type="ReportHeader" Name="ReportHeader"
+		Height="990"
+	>
+		<Control 
+		Type="AR.Label"
+		Name="Label1"
+		Left="0"
+		Top="0"
+		Width="9071"
+		Height="992"
+		Caption="RELATORIO TREINAMENTO"
+		ClassName="Normal"
+		Style="text-align: center; font-weight: bold; font-size: 30pt; "
+		>
+		</Control>
+	</Section>
+	<Section Type="PageHeader" Name="PageHeader"
+		Height="990"
+	>
+		<Control 
+		Type="AR.Label"
+		Name="Label2"
+		Left="0"
+		Top="0"
+		Width="2835"
+		Height="425"
+		Caption="DATA/HORA"
+		ClassName="Normal"
+		Style="text-align: center; font-weight: bold; font-size: 18pt; "
+		>
+		</Control>
+		<Control 
+		Type="AR.Label"
+		Name="Label3"
+		Left="2835"
+		Top="0"
+		Width="3968"
+		Height="425"
+		Caption="MENSAGEM"
+		ClassName="Normal"
+		Style="text-align: center; font-weight: bold; font-size: 18pt; "
+		>
+		</Control>
+		<Control 
+		Type="AR.Label"
+		Name="Label4"
+		Left="0"
+		Top="0"
+		Width="2835"
+		Height="425"
+		Caption="DATA/HORA"
+		ClassName="Normal"
+		Style="text-align: center; font-weight: bold; font-size: 18pt; "
+		>
+		</Control>
+		<Control 
+		Type="AR.Label"
+		Name="Label5"
+		Left="6803"
+		Top="0"
+		Width="1701"
+		Height="425"
+		Caption="VALOR"
+		ClassName="Normal"
+		Style="text-align: center; font-weight: bold; font-size: 18pt; "
+		>
+		</Control>
+	</Section>
+	<Section Type="Detail" Name="Detail"
+		Height="2880"
+		CanShrink="1"
+	>
+		<Control 
+		Type="AR.Field"
+		Name="Field1"
+		DataField="E3TimeStamp"
+		Left="0"
+		Top="0"
+		Width="2835"
+		Height="283"
+		Text="E3TimeStamp"
+		ClassName="Normal"
+		Style="text-align: center; "
+		>
+		</Control>
+		<Control 
+		Type="AR.Field"
+		Name="Field2"
+		DataField="Message"
+		Left="2835"
+		Top="0"
+		Width="3968"
+		Height="283"
+		Text="Message"
+		ClassName="Normal"
+		Style="text-align: center; "
+		>
+		</Control>
+		<Control 
+		Type="AR.Field"
+		Name="Field3"
+		DataField="CurrentValue"
+		Left="6803"
+		Top="0"
+		Width="1701"
+		Height="283"
+		Text="CurrentValue"
+		OutputFormat="#,##0.0"
+		ClassName="Normal"
+		Style="text-align: center; "
+		>
+		</Control>
+	</Section>
+	<Section Type="PageFooter" Name="PageFooter"
+		Height="360"
+	>
+	</Section>
+	<Section Type="ReportFooter" Name="ReportFooter"
+		Height="360"
+	>
+	</Section>
+</Sections>
+</ActiveReportsLayout>
