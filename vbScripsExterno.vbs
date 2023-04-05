@@ -319,7 +319,7 @@ Sub Consulta1_OnAsyncQueryFinish(RecordSet, Error)
 	
 	If Error <> True Then
 		RS.MoveFirst
-	
+
 		For i = 1 to RS.RecordCount
 			a1 = RS.Fields("Campo").Value
 			a2 = RS.Fields("Campo2").Value
@@ -331,7 +331,6 @@ Sub Consulta1_OnAsyncQueryFinish(RecordSet, Error)
 	End If
 
 End Sub
-
 ' </GETASYNCADORECORDSET>
 
 
