@@ -336,7 +336,21 @@ End Sub
 
 ' ------------------------------------------------------------------------------------------------------------------
 
+' Configurando um array para configuração dos drivers
+Dim arr(6)
+'configura os elementos do array 
+arr(1) = "IO.Type" 
+arr(2) = "Serial" 
+arr(3) = "IO.Serial.Port" 
+arr(4) = 1 
+arr(5) = "IO.serial.BaudRate" 
+arr(6) = 19200 
 
+' Maneira mais compacta
+Dim arr(3)
+arr(1) = Array("IO.Type", "Serial") 
+arr(2) = Array("IO.Serial.Port", 1) 
+arr(3) = Array("IO.serial.BaudRate", 19200)
 
 ' ------------------------------------------------------------------------------------------------------------------
 
