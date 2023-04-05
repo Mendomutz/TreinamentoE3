@@ -355,7 +355,11 @@ Arr2(3) = Array("IO.Serial.BaudRate", 19200)
 
 ' ------------------------------------------------------------------------------------------------------------------
 
-
+' Criando um objeto em tempo de execução
+Set retangulo = Screem.AddObject("DrawRect", True) ' Tipo de objeto "DrawRect"
+retangulo.X = 200
+retangulo.Y = 200
+retangulo.FreGroundColor = vbRed
 
 ' ------------------------------------------------------------------------------------------------------------------
 
