@@ -336,7 +336,22 @@ End Sub
 
 ' ------------------------------------------------------------------------------------------------------------------
 
+' Modificando driver em tempo de execução
+' Criar um vetor com as configurações mais comuns
+Dim Arr(6)
+' Configurando os elementos do array
+Arr(1) = "IO.Type"
+Arr(2) = "Serial"
+Arr(3) = "IO.Serial.Port"
+Arr(4) = 1
+Arr(5) = "IO.Serial.BaudRate"
+Arr(6) = 19200
 
+' Fazendo de outra maneira
+Dim Arr2(3)
+Arr2(1) = Array("IO.Type", "Serial")
+Arr2(2) = Array("IO.Serial.Port", 1)
+Arr2(3) = Array("IO.Serial.BaudRate", 19200)
 
 ' ------------------------------------------------------------------------------------------------------------------
 
