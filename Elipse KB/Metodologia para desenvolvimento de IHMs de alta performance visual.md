@@ -1,0 +1,11 @@
+1: INTERFACES MODERNAS E O CENÁRIO INDUSTRIAL
+
+Temos assistido nos últimos anos a uma grande evolução no design de interfaces em geral. Saímos recentemente de um cenário onde nossa interação com o computador era baseada exclusivamente em interfaces por linhas de comando, e chegamos a um ponto em que até mesmo uma criança, de posse de um tablet, consegue aprender sozinha a operar o dispositivo e navegar na internet. Isto demonstra como as interfaces modernas estão se tornando cada vez mais intuitivas, fáceis de aprender e fáceis de usar.
+
+Este salto qualitativo é fruto de inúmeras pesquisas e estudos realizados nas mais diversas áreas do conhecimento. Os resultados podem ser vistos em nosso dia a dia: com um smartphone, fazemos uma transação bancária em poucos segundos, ou comparamos o preço de um produto em diversos sites de compras simultaneamente. Fazemos isto sem a necessidade de receber instruções específicas sobre como operar estes aplicativos. Porém, quando confrontamos este cenário com aquele praticado na indústria, onde uma falha no processo pode envolver riscos à vida, ao meio ambiente e ao patrimônio, percebemos que a situação fica muito longe do ideal.
+
+Normalmente, as interfaces industriais são desenvolvidas por técnicos e engenheiros da própria indústria, e não por profissionais da área de design. É portanto comum que estes técnicos desconheçam as disciplinas e os estudos de design, psicologia e ciências cognitivas que orientam o desenvolvimento das interfaces modernas.  Além disso, as interfaces industriais são normalmente desenvolvidas em cenários de prazos e orçamentos apertados, o que tira a possibilidade de um desenvolvimento pautado em eficácia, eficiência e satisfação do usuário.
+
+A presente metodologia vem justamente suprir esta lacuna. Ela une o que há de melhor na área de design para interfaces com a experiência da indústria aeronáutica, que é referência em matéria de segurança.
+
+Como exemplo, a tela a seguir foi desenvolvida dentro da metodologia de IHMs de Alta Performance Visual. As cores em geral são discretas, com poucos objetos exibindo cores chamativas. O desenho dos objetos é minimalista, reduzido ao essencial. Há objetos combinados, como o Chart com Bargraph e o Gráfico de Barras com o Gráfico de Linhas, que trazem informação de melhor qualidade a um baixo custo de processamento cognitivo.
