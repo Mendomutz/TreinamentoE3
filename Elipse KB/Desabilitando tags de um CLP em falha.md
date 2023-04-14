@@ -15,38 +15,38 @@ Foi desenvolvida também uma biblioteca (desabilitaleituraemerro.lib) que conté
 
 As seguintes propriedades do xoDisable devem ser preenchidas a cada instância adicionada no projeto principal:
 
-    AppDriver: 
-        Driver ao qual o equipamento pertence
+* AppDriver: 
+    Driver ao qual o equipamento pertence
 
-    BancoDeDados:
-        Objeto banco de dados onde serão gravadas mensagens de leitura desabilitada ou habilitada
+* BancoDeDados:
+    Objeto banco de dados onde serão gravadas mensagens de leitura desabilitada ou habilitada
 
-    IDEquip:
-        Identificação do equipamento na rede (valor do parâmetro N1 no driver de comunicação)
+* IDEquip:
+    Identificação do equipamento na rede (valor do parâmetro N1 no driver de comunicação)
 
-    Tabela:
-        Nome da tabela onde serão gravados os eventos de leitura desabilitada ou habilitada
+* Tabela:
+    Nome da tabela onde serão gravados os eventos de leitura desabilitada ou habilitada
 
-    TagdeControle:
-        Tag utilizado para verificar se a comunicação está em falha.
-        Este é o único tag onde a leitura não será desabilitada quando em falha
+* TagdeControle:
+    Tag utilizado para verificar se a comunicação está em falha.
+    Este é o único tag onde a leitura não será desabilitada quando em falha
 
-    ValorPreset:
-        Intervalo de tempo (em segundos) no qual ocorre a verificação da comunicação quando está em falha
+* ValorPreset:
+    Intervalo de tempo (em segundos) no qual ocorre a verificação da comunicação quando está em falha
 
 Para habilitar o tag contador da instância do xoDisable referente ao equipamento (N1) em falha, é preciso adicionar um script ao evento OnCommError do driver. Exemplo:
 
 Codigo no Elipse E3:
 -----------------------------------------------------------------------------------------------------
 
->Sub Driver_OnCommError(EvtType, Size, Element, N1, N2, N3, N4)
->    'Script que verifica qual o N1 do tag com erro e habilita um contador.
->    IF N1 = 1 THEN
->        Application.GetObject("Dados.xoDriver1").TagContador.Enabled = True
->    ELSEIF N1 = 2 THEN
->        Application.GetObject("Dados.xoDriver2").TagContador.Enabled = True
->    end if
->End Sub
+    Sub Driver_OnCommError(EvtType, Size, Element, N1, N2, N3, N4)
+        'Script que verifica qual o N1 do tag com erro e habilita um contador.
+        IF N1 = 1 THEN
+            Application.GetObject("Dados.xoDriver1").TagContador.Enabled = True
+        ELSEIF N1 = 2 THEN
+            Application.GetObject("Dados.xoDriver2").TagContador.Enabled = True
+        end if
+    End Sub
 
 Para utilizar esta aplicação, siga estes procedimentos:
 

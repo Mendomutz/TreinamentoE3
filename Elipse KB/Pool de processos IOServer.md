@@ -16,7 +16,7 @@ Opções de comportamento do Pool de Processos IOServer:
 |           N          |              O             |           2           |
 |           N          |              M             |           3           |
 
-1. 
+1.
     À medida que os Drivers do aplicativo forem ativados, é criado um processo IOServer para cada Driver, até atingir o número máximo M. Depois deste ponto, cada novo Driver que for ativado é adicionado ao IOServer do Pool que contém a menor quantidade de Drivers
 
 2.
